@@ -8,6 +8,8 @@ export default async function handler(request, response) {
     try {
       const places = await Place.find();
 
+      console.log("Places: ", places);
+
       response.status(200).json(places);
     } catch (error) {
       console.error(error);
