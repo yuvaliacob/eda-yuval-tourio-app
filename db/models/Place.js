@@ -12,7 +12,7 @@ const placeSchema = new Schema({
   //   comments: { type: [Schema.Types.ObjectId], ref: "Comment" },
 });
 
-const Place = models.Place || model("Place", placeSchema);
+const Place = mongoose.models.Place || mongoose.model("Place", placeSchema);
 
 // const Comment =
 //   mongoose.models.Comment || mongoose.model("Comment", commentSchema);
