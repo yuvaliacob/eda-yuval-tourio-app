@@ -3,14 +3,15 @@ import styled from "styled-components";
 import { StyledImage } from "./StyledImage.js";
 
 const Article = styled.article`
-  border: 5px solid black;
-  border-radius: 0.8rem;
-  padding: 0.5rem;
+  // border: 5px solid black;
+  // border-radius: 0.8rem;
+  // padding: 0.5rem;
 `;
 
 const ImageContainer = styled.div`
   position: relative;
   height: 10rem;
+  margin-bottom: 20px;
 `;
 
 const Figure = styled.figure`
@@ -56,9 +57,14 @@ export default function Card({ name, image, location, id }) {
             alt=""
           />
         </ImageContainer>
-        <figcaption>{name}</figcaption>
+        <figcaption>
+          <b> {name} </b>
+        </figcaption>
       </Figure>
-      <p>Location: {location}</p>
+      <p>
+        {" "}
+        <b> 📍 Location: </b> {location}
+      </p>
       <Link href={`places/${id}`} passHref legacyBehavior>
         <Anchor>
           <ScreenReaderOnly>More Info</ScreenReaderOnly>

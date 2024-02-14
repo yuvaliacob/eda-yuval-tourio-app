@@ -4,6 +4,8 @@ import { StyledButton } from "./StyledButton.js";
 export const FormContainer = styled.form`
   display: grid;
   gap: 0.5rem;
+  font-family: monospace;
+  margin: 30px;
 `;
 
 export const Input = styled.input`
@@ -18,6 +20,7 @@ export const Textarea = styled.textarea`
   border: 3px solid black;
   border-radius: 0.5rem;
   padding: 0.5rem;
+  margin-bottom: 10px;
 `;
 
 export const Label = styled.label`
@@ -34,35 +37,35 @@ export default function Form({ onSubmit, formName, defaultData }) {
 
   return (
     <FormContainer aria-labelledby={formName} onSubmit={handleSubmit}>
-      <Label htmlFor="name">Name</Label>
+      <Label htmlFor="name"> 👤 Name</Label>
       <Input
         id="name"
         name="name"
         type="text"
         defaultValue={defaultData?.name}
       />
-      <Label htmlFor="image-url">Image Url</Label>
+      <Label htmlFor="image-url"> 🖥️ Image Url</Label>
       <Input
         id="image-url"
         name="image"
         type="text"
         defaultValue={defaultData?.image}
       />
-      <Label htmlFor="location">Location</Label>
+      <Label htmlFor="location"> 📍 Location</Label>
       <Input
         id="location"
         name="location"
         type="text"
         defaultValue={defaultData?.location}
       />
-      <Label htmlFor="map-url">Map Url</Label>
+      <Label htmlFor="map-url"> 🗺️ Map Url</Label>
       <Input
         id="map-url"
         name="mapURL"
         type="text"
         defaultValue={defaultData?.mapURL}
       />
-      <Label htmlFor="description">Description</Label>
+      <Label htmlFor="description"> 📝 Description</Label>
       <Textarea
         name="description"
         id="description"
