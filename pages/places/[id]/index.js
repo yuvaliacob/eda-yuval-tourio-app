@@ -8,6 +8,8 @@ import { StyledImage } from "../../../components/StyledImage.js";
 import Comments from "../../../components/Comments.js";
 
 const ImageContainer = styled.div`
+  display: flex;
+  align-items: center;
   position: relative;
   height: 15rem;
 `;
@@ -25,8 +27,9 @@ const ButtonContainer = styled.section`
 
 const StyledLocationLink = styled(StyledLink)`
   text-align: center;
-  background-color: white;
-  border: 3px solid lightsalmon;
+  background-color: black;
+  border: 3px solid black;
+  color: white;
 `;
 
 export default function DetailsPage() {
@@ -73,7 +76,7 @@ export default function DetailsPage() {
         {place.name}, {place.location}
       </h2>
       <Link href={place.mapURL} passHref legacyBehavior>
-        <StyledLocationLink>Location on Google Maps</StyledLocationLink>
+        <StyledLocationLink> 🗺️ Location on Google Maps</StyledLocationLink>
       </Link>
       <p>{place.description}</p>
       <ButtonContainer>
@@ -84,7 +87,7 @@ export default function DetailsPage() {
           Delete
         </StyledButton>
       </ButtonContainer>
-      <Comments locationName={place.name} comments={comments} />
+      {/* <Comments locationName={place.name} comments={comments} /> */}
     </>
   );
 }
