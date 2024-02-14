@@ -10,6 +10,10 @@ const Headline = styled.h1`
   padding: 20px;
   text-align: center;
   z-index: 1;
+  background-color: black;
+  color: white;
+  font-family: monospace;
+  font-size: 2rem;
 `;
 
 export default function TitleBar() {
