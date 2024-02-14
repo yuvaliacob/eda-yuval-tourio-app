@@ -1,4 +1,4 @@
-import { useRouter } from "next/router";
+import Router, { useRouter } from "next/router";
 import Link from "next/link";
 import useSWR from "swr";
 import Form from "../../../components/Form.js";
@@ -10,9 +10,23 @@ export default function EditPage() {
   const { id } = router.query;
   const { data: place, isLoading, error } = useSWR(`/api/places/${id}`);
 
+  // PATCH
+
   async function editPlace(place) {
-    console.log("Place edited (but not really...)");
+    const response = await fetch(`/api/places/${id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(place),
+    });
+
+    if (response.ok) {
+      Router.push(`/places/${id}`);
+    }
   }
+
+  // PATCH
 
   if (!isReady || isLoading || error) return <h2>Loading...</h2>;
 
@@ -22,7 +36,7 @@ export default function EditPage() {
       <Link href={`/places/${id}`} passHref legacyBehavior>
         <StyledLink justifySelf="start">back</StyledLink>
       </Link>
-      <Form onSubmit={editPlace} formName={'edit-place'} defaultData={place} />
+      <Form onSubmit={editPlace} formName={"edit-place"} defaultData={place} />
     </>
   );
 }

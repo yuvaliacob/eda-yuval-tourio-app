@@ -17,4 +17,14 @@ export default async function handler(request, response) {
 
     response.status(200).json({ place: place, comments: [] });
   }
+
+  // /api/places/[id].js
+  if (request.method === "PATCH") {
+    await Place.findByIdAndUpdate(id, {
+      $set: request.body,
+    });
+    // Find the place by its ID and update the content that is part of the request body!
+    response.status(200).json({ status: `Place ${id} updated!` });
+    // If successful, you'll receive an OK status code.
+  }
 }
